@@ -1,6 +1,13 @@
 {
   "analysen": [
     {
+      "kw": "32",
+      "jahr": "2026",
+      "datum": "2026-08-09",
+      "file": "archiv/2026/kw32-2026-08-09.html",
+      "tools": ["Wispr Flow Notetaker", "Framer 3.0", "Atlaso", "Soloop", "AdAnt AI"]
+    },
+    {
       "kw": "31",
       "jahr": "2026",
       "datum": "2026-08-02",
