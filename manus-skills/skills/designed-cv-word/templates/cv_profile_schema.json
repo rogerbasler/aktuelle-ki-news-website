@@ -1,0 +1,62 @@
+{
+  "name": "Vorname Nachname",
+  "headline": "Rolle | Spezialisierung | Positionierung",
+  "tagline": "Kurzer, prägnanter Wertbeitrag in einem Satz.",
+  "contact": [
+    "Ort, Land",
+    "+41 ...",
+    "mail@example.com",
+    "linkedin.com/in/...",
+    "website.ch"
+  ],
+  "core_profile": [
+    "MSc / PhD / relevante Qualifikation",
+    "Top-Speaker / Führungserfahrung / Unternehmertum",
+    "10+ Jahre relevante Erfahrung"
+  ],
+  "skills": [
+    "Künstliche Intelligenz",
+    "Digitale Geschäftsmodelle",
+    "Data Science",
+    "Executive Education"
+  ],
+  "languages": [
+    "Deutsch: muttersprachlich",
+    "Englisch: verhandlungssicher"
+  ],
+  "awards": [
+    "Auszeichnung oder Anerkennung"
+  ],
+  "certifications": [
+    "Zertifikat"
+  ],
+  "profile": [
+    "Absatz 1: Verdichtete professionelle Positionierung.",
+    "Absatz 2: Wirkung, Zielgruppe und strategische Relevanz."
+  ],
+  "strategic_focus": [
+    "Fokuspunkt mit klarer geschäftlicher Relevanz.",
+    "Fokuspunkt mit messbarem Nutzen."
+  ],
+  "experience": [
+    {
+      "title": "Rolle",
+      "organisation": "Organisation",
+      "period": "MM/JJJJ bis heute",
+      "location": "Ort",
+      "description": "Ein Satz zur Rolle, Wirkung und Verantwortung.",
+      "bullets": [
+        "Konkreter Beitrag, Ergebnis oder Verantwortungsbereich.",
+        "Konkreter Beitrag, Ergebnis oder Verantwortungsbereich."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Abschluss",
+      "institution": "Institution",
+      "period": "JJJJ bis JJJJ"
+    }
+  ],
+  "publications": "Kurzer Absatz zu Publikationen, Themen oder Thought Leadership."
+}

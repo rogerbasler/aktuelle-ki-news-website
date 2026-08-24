@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Slides — fragRoger White & Blue Graffiti</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* =============================================
+     DESIGN SYSTEM: fragRoger White & Blue Graffiti
+     Font: Avenir Next → Nunito (web fallback)
+     Primary: #0066CC | Background: #FFFFFF / #EEF4FB
+     ============================================= */
+
+  :root {
+    --bg-white: #FFFFFF;
+    --bg-alt: #EEF4FB;
+    --bg-cta: #0066CC;
+    --blue-primary: #0066CC;
+    --blue-deep: #003D7A;
+    --blue-sky: #4A9FE0;
+    --blue-card: #F0F7FF;
+    --blue-border: #D0E4F7;
+    --text-primary: #0D1B2A;
+    --text-secondary: #2C4A6E;
+    --text-muted: #6B8CAE;
+    --accent-spark: #FF6B35;
+    --font: 'Avenir Next', 'Avenir', 'Nunito', 'Nunito Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font);
+    background: #F5F5F5;
+  }
+
+  .slide {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 0 80px 0 80px;
+    background: var(--bg-white);
+    margin: 20px auto;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  }
+
+  .slide.alt { background: var(--bg-alt); }
+  .slide.cta-slide { background: var(--bg-cta); }
+
+  /* Top accent bar */
+  .top-bar {
+    height: 6px;
+    background: linear-gradient(90deg, #0066CC 0%, #4A9FE0 60%, #D0E4F7 100%);
+    flex-shrink: 0;
+    margin-bottom: 30px;
+  }
+  .cta-slide .top-bar {
+    background: linear-gradient(90deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.2) 100%);
+  }
+
+  /* Ghost graffiti word */
+  .ghost-word {
+    position: absolute;
+    font-family: var(--font);
+    font-size: 160px;
+    font-weight: 900;
+    color: #4A9FE0;
+    opacity: 0.06;
+    z-index: 0;
+    transform: rotate(-8deg);
+    top: 20px;
+    right: -20px;
+    text-transform: uppercase;
+    letter-spacing: -5px;
+    pointer-events: none;
+    white-space: nowrap;
+    user-select: none;
+  }
+  .alt .ghost-word { opacity: 0.08; }
+  .cta-slide .ghost-word { color: #003D7A; opacity: 0.20; }
+
+  /* Slide counter */
+  .counter {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    z-index: 10;
+  }
+  .cta-slide .counter { color: rgba(255,255,255,0.6); }
+
+  /* Blue spray divider */
+  .divider {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #0066CC, #4A9FE0);
+    margin: 16px 0;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .cta-slide .divider { background: rgba(255,255,255,0.5); width: 120px; }
+
+  /* Badge sticker */
+  .badge {
+    display: inline-block;
+    background: var(--blue-primary);
+    color: #FFFFFF;
+    font-family: var(--font);
+    font-weight: 900;
+    font-size: 13px;
+    padding: 7px 16px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transform: rotate(-2deg);
+    box-shadow: 4px 4px 0px var(--blue-deep);
+    margin-bottom: 20px;
+    align-self: flex-start;
+    z-index: 2;
+  }
+
+  /* Section label */
+  .label {
+    font-family: var(--font);
+    font-weight: 800;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+    z-index: 2;
+  }
+
+  /* Headlines */
+  h1 {
+    font-family: var(--font);
+    font-weight: 900;
+    font-size: 62px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    z-index: 2;
+  }
+  h2 {
+    font-family: var(--font);
+    font-weight: 900;
+    font-size: 42px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    line-height: 1.1;
+    z-index: 2;
+  }
+  h1 .accent, h2 .accent { color: var(--blue-primary); }
+  h1 .spark { color: var(--accent-spark); }
+
+  /* Body text */
+  .body-text {
+    font-family: var(--font);
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    z-index: 2;
+    margin-top: 12px;
+  }
+
+  /* Subtitle (title slide) */
+  .subtitle {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--text-secondary);
+    margin-top: 14px;
+    z-index: 2;
+  }
+
+  /* Bottom bar */
+  .bottom-bar {
+    margin-top: auto;
+    background: var(--blue-card);
+    border: 1px solid var(--blue-border);
+    border-left: 5px solid var(--blue-primary);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+    flex-shrink: 0;
+  }
+  .bottom-bar .takeaway {
+    font-family: var(--font);
+    font-weight: 800;
+    font-size: 15px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .bottom-bar .brand {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* Stat number */
+  .stat-number {
+    font-family: var(--font);
+    font-weight: 900;
+    font-size: 96px;
+    color: var(--blue-primary);
+    line-height: 1;
+    letter-spacing: -3px;
+    z-index: 2;
+  }
+  .stat-label {
+    font-family: var(--font);
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--blue-deep);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 4px;
+    z-index: 2;
+  }
+  .stat-source {
+    font-family: var(--font);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    z-index: 2;
+  }
+
+  /* Pain points / Steps list */
+  .item-list { list-style: none; z-index: 2; margin-top: 16px; }
+  .item-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 14px;
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--text-primary);
+  }
+  .item-list li .bullet {
+    width: 28px;
+    height: 28px;
+    background: var(--blue-primary);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .item-list li .bullet span {
+    color: #FFFFFF;
+    font-weight: 900;
+    font-size: 14px;
+  }
+
+  /* Checklist (summary) */
+  .checklist { list-style: none; z-index: 2; margin-top: 16px; }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 18px;
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--text-primary);
+  }
+  .checklist li .check {
+    width: 28px;
+    height: 28px;
+    background: var(--blue-primary);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .checklist li .check span { color: #FFFFFF; font-weight: 900; font-size: 16px; }
+
+  /* CTA slide specific */
+  .cta-slide h1 { color: #FFFFFF; }
+  .cta-slide h2 { color: #FFFFFF; }
+  .cta-slide .label { color: rgba(255,255,255,0.7); }
+  .cta-slide .body-text { color: rgba(255,255,255,0.85); }
+  .cta-slide .cta-actions { list-style: none; z-index: 2; margin-top: 16px; }
+  .cta-slide .cta-actions li {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 20px;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .cta-slide .cta-actions li .arrow {
+    color: rgba(255,255,255,0.7);
+    font-size: 22px;
+    font-weight: 900;
+  }
+  .cta-slide .cta-brand {
+    margin-top: auto;
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    z-index: 2;
+    padding-bottom: 20px;
+  }
+
+  /* Logo badge (CTA slide) */
+  .logo-badge {
+    width: 64px;
+    height: 64px;
+    border: 3px solid rgba(255,255,255,0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    z-index: 2;
+  }
+  .logo-badge span {
+    font-family: var(--font);
+    font-weight: 900;
+    font-size: 22px;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+  }
+
+  /* Content area (main flex zone) */
+  .content { flex: 1; display: flex; flex-direction: column; z-index: 2; }
+  .content-row { display: flex; gap: 40px; flex: 1; }
+  .content-col { flex: 1; display: flex; flex-direction: column; }
+
+  /* Card */
+  .card {
+    background: var(--blue-card);
+    border: 1px solid var(--blue-border);
+    border-top: 4px solid var(--blue-primary);
+    padding: 20px 24px;
+    flex: 1;
+  }
+</style>
+</head>
+<body>
+
+<!-- =============================================
+     SLIDE 1 — TITLE
+     ============================================= -->
+<div class="slide" id="slide-1">
+  <div class="ghost-word">LINKEDIN</div>
+  <div class="counter">1 / 10</div>
+  <div class="top-bar"></div>
+  <div class="content">
+    <div class="badge">AI REALITY CHECK</div>
+    <h1>THE TITLE THAT<br><span class="accent">SPARKS INTEREST</span></h1>
+    <div class="divider"></div>
+    <div class="subtitle">A compelling subtitle that makes them want to read on</div>
+    <div class="bottom-bar" style="margin-top:auto;">
+      <span class="takeaway">Roger Basler de Roca</span>
+      <span class="brand">ki-power.me</span>
+    </div>
+  </div>
+</div>
+
+<!-- =============================================
+     SLIDE 2 — HOOK
+     ============================================= -->
+<div class="slide" id="slide-2">
+  <div class="ghost-word">TRUTH</div>
+  <div class="counter">2 / 10</div>
+  <div class="top-bar"></div>
+  <div class="content">
+    <div class="badge" style="transform:rotate(1.5deg);">THE UNCOMFORTABLE TRUTH</div>
+    <h1>MOST PEOPLE ARE<br><span class="accent">DOING THIS WRONG</span></h1>
+    <div class="divider"></div>
+    <div class="body-text">And the worst part? They don't even know it. Here's what the data actually shows.</div>
+    <div class="bottom-bar">
+      <span class="takeaway">The hook that stops the scroll</span>
+      <span class="brand">ki-power.me</span>
+    </div>
+  </div>
+</div>
+
+<!-- =============================================
+     SLIDE 3 — PROBLEM (alt background)
+     ============================================= -->
+<div class="slide alt" id="slide-3">
+  <div class="ghost-word">PROBLEM</div>
+  <div class="counter">3 / 10</div>
+  <div class="top-bar"></div>
+  <div class="content">
+    <div class="label">03 — THE REAL CHALLENGE</div>
+    <h2>SOUND FAMILIAR?</h2>
+    <div class="divider"></div>
+    <ul class="item-list">
+      <li><div class="bullet"><span>!</span></div>Pain point one that makes them nod</li>
+      <li><div class="bullet"><span>!</span></div>Pain point two that makes them feel seen</li>
+      <li><div class="bullet"><span>!</span></div>Pain point three that seals the deal</li>
+    </ul>
+    <div class="bottom-bar">
+      <span class="takeaway">You are not alone — this is systemic</span>
+      <span class="brand">ki-power.me</span>
+    </div>
+  </div>
+</div>
+
+<!-- =============================================
+     SLIDE 4 — INSIGHT
+     ============================================= -->
+<div class="slide" id="slide-4">
+  <div class="ghost-word">INSIGHT</div>
+  <div class="counter">4 / 10</div>
+  <div class="top-bar"></div>
+  <div class="content">
+    <div class="label">04 — THE REAL ISSUE</div>
+    <h2>WHAT NOBODY<br><span class="accent">TELLS YOU</span></h2>
+    <div class="divider"></div>
+    <div class="body-text">The root cause is not what you think. Most solutions address the symptom, not the system.</div>
+    <div class="body-text" style="margin-top:10px;">The decisive difference lies in understanding the underlying mechanism.</div>
+    <div class="bottom-bar">
+      <span class="takeaway">Symptoms are visible — causes are not</span>
+      <span class="brand">ki-power.me</span>
+    </div>
+  </div>
+</div>
+
+<!-- =============================================
+     SLIDE 5 — SOLUTION (alt background)
+     ============================================= -->
+<div class="slide alt" id="slide-5">
+  <div class="ghost-word">SOLUTION</div>
+  <div class="counter">5 / 10</div>
+  <div class="top-bar"></div>
+  <div class="content">
+    <div class="label">05 — THE APPROACH</div>
+    <h2>HERE IS WHAT<br><span class="accent">ACTUALLY WORKS</span></h2>
+    <div class="divider"></div>
+    <ul class="item-list">
+      <li><div class="bullet"><span>1</span></div>First actionable step — clear and specific</li>
+      <li><div class="bullet"><span>2</span></div>Second actionable step — measurable outcome</li>
+      <li><div class="bullet"><span>3</span></div>Third actionable step — sustainable result</li>
+    </ul>
+    <div class="bottom-bar">
+      <span class="takeaway">Clarity beats complexity every time</span>
+      <span class="brand">ki-power.me</span>
+    </div>
+  </div>
+</div>
+
+<!-- =============================================
+     SLIDE 6 — FACT 1
+     ============================================= -->
+<div class="slide" id="slide-6">
+  <div class="ghost-word">DATA</div>
+  <div class="counter">6 / 10</div>
+  <div class="top-bar"></div>
+  <div class="content">
+    <div class="label">06 — THE NUMBERS</div>
+    <div class="stat-number">73%</div>
+    <div class="stat-label">of companies fail at this</div>
+    <div class="divider"></div>
+    <div class="body-text">This is not a marginal issue. Nearly three quarters of organisations struggle with the exact same challenge.</div>
+    <div class="stat-source">Source: McKinsey Global Survey, 2024</div>
+    <div class="bottom-bar">
+      <span class="takeaway">Data does not lie — strategy does</span>
+      <span class="brand">ki-power.me</span>
+    </div>
+  </div>
+</div>
+
+<!-- =============================================
+     SLIDE 7 — FACT 2 (alt background)
+     ============================================= -->
+<div class="slide alt" id="slide-7">
+  <div class="ghost-word">FACTS</div>
+  <div class="counter">7 / 10</div>
+  <div class="top-bar"></div>
+  <div class="content">
+    <div class="label">07 — MORE NUMBERS</div>
+    <div class="stat-number" style="color:#FF6B35;">$4.4T</div>
+    <div class="stat-label">annual value at stake</div>
+    <div class="divider"></div>
+    <div class="body-text">The economic consequence is not theoretical. This is the size of the opportunity — or the loss — depending on your next decision.</div>
+    <div class="stat-source">Source: World Economic Forum, 2024</div>
+    <div class="bottom-bar">
+      <span class="takeaway">The cost of inaction is not zero</span>
+      <span class="brand">ki-power.me</span>
+    </div>
+  </div>
+</div>
+
+<!-- =============================================
+     SLIDE 8 — EXAMPLE
+     ============================================= -->
+<div class="slide" id="slide-8">
+  <div class="ghost-word">REAL</div>
+  <div class="counter">8 / 10</div>
+  <div class="top-bar"></div>
+  <div class="content">
+    <div class="badge" style="transform:rotate(-1deg);">REAL WORLD</div>
+    <h2>HOW <span class="accent">[COMPANY]</span><br>DID IT DIFFERENTLY</h2>
+    <div class="divider"></div>
+    <div class="body-text">They faced the same constraints as everyone else. The difference was not resources — it was a decision about where to focus.</div>
+    <div class="body-text" style="margin-top:10px; font-weight:800; color:#0066CC;">Result: 3x output in 90 days with the same team.</div>
+    <div class="bottom-bar">
+      <span class="takeaway">Proof beats theory — always</span>
+      <span class="brand">ki-power.me</span>
+    </div>
+  </div>
+</div>
+
+<!-- =============================================
+     SLIDE 9 — SUMMARY (alt background)
+     ============================================= -->
+<div class="slide alt" id="slide-9">
+  <div class="ghost-word">RECAP</div>
+  <div class="counter">9 / 10</div>
+  <div class="top-bar"></div>
+  <div class="content">
+    <div class="label">09 — KEY TAKEAWAYS</div>
+    <h2>THE 3 THINGS<br><span class="accent">THAT MATTER</span></h2>
+    <div class="divider"></div>
+    <ul class="checklist">
+      <li><div class="check"><span>✓</span></div>First crisp, memorable takeaway from this presentation</li>
+      <li><div class="check"><span>✓</span></div>Second crisp, memorable takeaway from this presentation</li>
+      <li><div class="check"><span>✓</span></div>Third crisp, memorable takeaway from this presentation</li>
+    </ul>
+    <div class="bottom-bar">
+      <span class="takeaway">Save this — you will need it</span>
+      <span class="brand">ki-power.me</span>
+    </div>
+  </div>
+</div>
+
+<!-- =============================================
+     SLIDE 10 — CTA (blue background — FIXED)
+     ============================================= -->
+<div class="slide cta-slide" id="slide-10">
+  <div class="ghost-word" style="color:#003D7A; opacity:0.20; font-size:200px;">ROGER</div>
+  <div class="counter">10 / 10</div>
+  <div class="top-bar"></div>
+  <div class="content">
+    <div class="logo-badge"><span>RB</span></div>
+    <h1 style="font-size:52px;">WANT MORE?</h1>
+    <div class="label" style="color:rgba(255,255,255,0.7); margin-top:4px;">KI-LITERACY FÜR DIE DACH-REGION</div>
+    <div class="divider"></div>
+    <ul class="cta-actions">
+      <li><span class="arrow">→</span> @fragroger auf LinkedIn folgen</li>
+      <li><span class="arrow">→</span> www.ki-power.me besuchen</li>
+      <li><span class="arrow">→</span> Carousel speichern &amp; teilen</li>
+    </ul>
+    <div class="cta-brand">www.ki-power.me</div>
+  </div>
+</div>
+
+</body>
+</html>

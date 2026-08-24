@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>fragRoger Black Cinematic Carousel - {{TOPIC}}</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;600&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rbr-black: #000000;
+  --rbr-white: #ffffff;
+  --rbr-blue-primary: #4a7fa1;
+  --rbr-blue-secondary: #4b80a0;
+  --rbr-pink: #ff1490;
+  --rbr-navy: #0d1b3a;
+  --font-display: 'Avenir Next', 'Avenir', 'Barlow Condensed', sans-serif;
+  --font-body: 'Avenir Next', 'Avenir', 'Barlow', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --slide-w: 480px;
+  --slide-h: 600px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #070707;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  padding: 20px;
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: var(--slide-w);
+  height: var(--slide-h);
+  overflow: hidden;
+  border-radius: 2px;
+  box-shadow: 0 28px 90px rgba(0,0,0,0.92);
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 48px 42px;
+  background: radial-gradient(circle at 30% 10%, rgba(74,127,161,0.16), transparent 32%), var(--rbr-black);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.slide.navy { background: radial-gradient(circle at 75% 15%, rgba(255,20,144,0.10), transparent 28%), var(--rbr-navy); }
+.slide.active { opacity: 1; pointer-events: all; }
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.46) contrast(1.22) saturate(0.9);
+  z-index: 0;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 45% 35%, transparent 0%, rgba(0,0,0,0.18) 35%, rgba(0,0,0,0.86) 100%),
+    linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.78));
+  z-index: 1;
+}
+
+.filmgrain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.11;
+  z-index: 2;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+.graffiti-bg {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: 150px;
+  font-weight: 900;
+  color: var(--rbr-blue-primary);
+  opacity: 0.052;
+  transform: rotate(-12deg);
+  top: 62px;
+  right: -28px;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  pointer-events: none;
+  user-select: none;
+  line-height: 0.85;
+  z-index: 2;
+}
+
+.slide-counter {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.52);
+  letter-spacing: 0.1em;
+  z-index: 10;
+}
+
+.slide-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--rbr-blue-primary);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 5;
+}
+
+.headline-hero,
+.headline-main {
+  font-family: var(--font-display);
+  font-weight: 900;
+  color: var(--rbr-white);
+  line-height: 0.88;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 5;
+  text-shadow: 0 10px 34px rgba(0,0,0,0.86), 0 0 36px rgba(74,127,161,0.22);
+}
+
+.headline-hero { font-size: 70px; max-width: 390px; }
+.headline-main { font-size: 54px; max-width: 396px; }
+
+.support-text {
+  font-family: var(--font-body);
+  font-size: 21px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.22;
+  margin-top: 22px;
+  max-width: 370px;
+  position: relative;
+  z-index: 5;
+}
+
+.accent-pink { color: var(--rbr-pink); text-shadow: 0 0 28px rgba(255,20,144,0.42); }
+.accent-blue { color: var(--rbr-blue-primary); text-shadow: 0 0 22px rgba(74,127,161,0.45); }
+
+.takeaway-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 26px;
+  max-width: 380px;
+  position: relative;
+  z-index: 5;
+}
+
+.takeaway-list li {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 14px;
+  align-items: start;
+  font-family: var(--font-body);
+  font-size: 21px;
+  line-height: 1.18;
+  color: rgba(255,255,255,0.84);
+}
+
+.takeaway-dot {
+  width: 12px;
+  height: 12px;
+  margin-top: 7px;
+  border-radius: 50%;
+  background: var(--rbr-pink);
+  box-shadow: 0 0 22px rgba(255,20,144,0.6);
+}
+
+.cta-word {
+  font-family: var(--font-display);
+  font-size: 62px;
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+  color: var(--rbr-white);
+  text-transform: uppercase;
+  position: relative;
+  z-index: 5;
+  text-shadow: 0 10px 34px rgba(0,0,0,0.86);
+}
+
+.footer-mark {
+  position: absolute;
+  left: 28px;
+  bottom: 24px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: rgba(74,127,161,0.72);
+  z-index: 10;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(74,127,161,0.12);
+  border: 1px solid rgba(74,127,161,0.25);
+  color: var(--rbr-white);
+  font-size: 16px;
+  width: 34px;
+  height: 34px;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  z-index: 20;
+}
+.nav-btn:hover { background: rgba(74,127,161,0.3); box-shadow: 0 0 12px rgba(74,127,161,0.4); }
+.nav-prev { left: 8px; }
+.nav-next { right: 8px; }
+
+.dots { display: flex; gap: 6px; margin-top: 16px; }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(74,127,161,0.28); cursor: pointer; transition: all 0.2s; }
+.dot.active { background: var(--rbr-pink); box-shadow: 0 0 8px rgba(255,20,144,0.6); transform: scale(1.6); }
+</style>
+</head>
+<body>
+<div style="position:relative;">
+  <div class="carousel-wrapper" id="carousel">
+    {{SLIDES_HTML}}
+  </div>
+  <button class="nav-btn nav-prev" onclick="changeSlide(-1)">&#8592;</button>
+  <button class="nav-btn nav-next" onclick="changeSlide(1)">&#8594;</button>
+</div>
+<div class="dots" id="dots">{{DOTS_HTML}}</div>
+<script>
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+const dotsContainer = document.getElementById('dots');
+
+slides.forEach((_, i) => {
+  const dot = document.createElement('div');
+  dot.className = 'dot' + (i === 0 ? ' active' : '');
+  dot.onclick = () => showSlide(i);
+  dotsContainer.appendChild(dot);
+});
+
+const allDots = () => document.querySelectorAll('.dot');
+const total = slides.length;
+
+function showSlide(n) {
+  slides.forEach(s => s.classList.remove('active'));
+  allDots().forEach(d => d.classList.remove('active'));
+  current = (n + total) % total;
+  slides[current].classList.add('active');
+  allDots()[current].classList.add('active');
+  document.querySelectorAll('.slide-counter').forEach((c, i) => {
+    c.textContent = (i + 1) + ' / ' + total;
+  });
+}
+
+function changeSlide(dir) { showSlide(current + dir); }
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') changeSlide(1);
+  if (e.key === 'ArrowLeft') changeSlide(-1);
+});
+
+let touchStartX = 0;
+document.getElementById('carousel').addEventListener('touchstart', e => {
+  touchStartX = e.changedTouches[0].screenX;
+}, {passive: true});
+document.getElementById('carousel').addEventListener('touchend', e => {
+  const diff = touchStartX - e.changedTouches[0].screenX;
+  if (Math.abs(diff) > 40) changeSlide(diff > 0 ? 1 : -1);
+}, {passive: true});
+
+showSlide(0);
+</script>
+</body>
+</html>

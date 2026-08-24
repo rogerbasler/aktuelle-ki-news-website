@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{TITLE}}</title>
+  <style>
+    @page { size: A4; margin: 0; }
+    * { box-sizing: border-box; }
+    :root {
+      --ink:#101820;
+      --muted:#53616f;
+      --paper:#f7f5ef;
+      --white:#ffffff;
+      --blue:#00a6d6;
+      --gold:#d7b56d;
+      --dark:#151a20;
+      --line:#d8dde3;
+    }
+    body { margin:0; background:#d8dde3; color:var(--ink); font-family:"Aptos","Inter","Helvetica Neue",Arial,sans-serif; }
+    .page { position:relative; width:210mm; height:297mm; margin:0 auto; background:var(--paper); overflow:hidden; page-break-after:always; }
+    .content { position:absolute; top:22mm; left:18mm; right:18mm; bottom:18mm; }
+    .running { position:absolute; top:9mm; left:18mm; right:18mm; display:flex; justify-content:space-between; align-items:center; color:#7b8792; font-size:7.8pt; text-transform:uppercase; letter-spacing:.12em; font-weight:800; }
+    .running:after { content:""; position:absolute; left:0; right:0; bottom:-3.5mm; height:1px; background:linear-gradient(90deg,var(--blue),var(--gold),transparent); opacity:.65; }
+    .page-number { position:absolute; bottom:9mm; right:18mm; color:#8d98a4; font-size:8.5pt; letter-spacing:.08em; }
+    h1,h2,h3,p { margin:0; }
+    h2 { font-size:27pt; line-height:1.02; letter-spacing:-.045em; font-weight:900; margin-bottom:7mm; }
+    h3 { font-size:13.5pt; line-height:1.22; font-weight:900; margin:7mm 0 2.5mm; }
+    p { font-size:10.6pt; line-height:1.55; color:#26313b; margin-bottom:3.6mm; }
+    .lead { font-size:13pt; line-height:1.42; color:#1e2933; font-weight:600; margin-bottom:6mm; }
+    .eyebrow { display:inline-block; color:var(--blue); font-size:8pt; letter-spacing:.16em; text-transform:uppercase; font-weight:900; margin-bottom:4mm; }
+    .quote { border-left:1.7mm solid var(--gold); padding:5mm 7mm; background:rgba(255,255,255,.62); margin:5mm 0; font-size:14pt; line-height:1.35; font-weight:800; color:var(--dark); }
+    .linkbox { margin-top:4mm; padding:4mm 5mm; background:rgba(0,166,214,.08); border:1px solid rgba(0,166,214,.25); border-left:1.2mm solid var(--blue); font-size:8.8pt; line-height:1.45; color:#26313b; }
+    a { color:var(--blue); text-decoration:none; font-weight:800; }
+    table { width:100%; border-collapse:collapse; margin:4mm 0 0; font-size:8.7pt; line-height:1.35; }
+    th { text-align:left; background:var(--dark); color:#fff; padding:2.8mm; font-size:7.4pt; text-transform:uppercase; letter-spacing:.08em; }
+    td { border:1px solid var(--line); padding:2.8mm; vertical-align:top; background:rgba(255,255,255,.72); }
+    .toc-row { display:grid; grid-template-columns:10mm 1fr 12mm; gap:3mm; align-items:baseline; border-bottom:1px solid rgba(16,24,32,.16); padding:3mm 0; }
+    .toc-num { color:var(--blue); font-weight:900; font-size:12pt; }
+    .toc-title { font-weight:800; font-size:11pt; }
+    .toc-page { text-align:right; color:var(--muted); font-size:9pt; }
+    .fact-grid { display:grid; grid-template-columns:1fr 1fr; gap:4mm; margin-top:6mm; }
+    .fact { background:var(--dark); color:#fff; padding:5mm; min-height:35mm; }
+    .fact .num { color:var(--gold); font-size:24pt; font-weight:900; line-height:1; }
+    .fact .label { color:#fff; margin-top:2mm; font-size:9.5pt; font-weight:800; }
+    .fact .txt { color:#cfd6dd; font-size:8.5pt; line-height:1.45; margin-top:2mm; }
+    .prompt-grid { display:grid; grid-template-columns:1fr 1fr; gap:3.5mm; margin-top:4mm; }
+    .prompt { background:#fff; border:1px solid var(--line); border-left:1.2mm solid var(--blue); padding:3.8mm; min-height:45mm; }
+    .prompt .head { display:flex; justify-content:space-between; align-items:center; gap:3mm; margin-bottom:2mm; }
+    .prompt .head span:first-child { font-size:7.3pt; color:var(--muted); text-transform:uppercase; letter-spacing:.11em; font-weight:900; }
+    .prompt .head span:last-child { font-size:7.3pt; color:#fff; background:var(--dark); padding:1mm 2mm; }
+    .prompt .text { font-size:8.15pt; line-height:1.42; color:#24313d; }
+    .tip { margin-top:2mm; border-top:1px solid var(--line); padding-top:2mm; font-size:7.4pt; line-height:1.35; color:var(--muted); font-weight:650; }
+  </style>
+</head>
+<body>
+  <!-- Replace these sections with project-specific pages. -->
+  <section class="page">
+    <div class="running"><span>{{RUNNING_LEFT}}</span><span>{{RUNNING_RIGHT}}</span></div>
+    <div class="content">
+      <span class="eyebrow">{{SECTION_NUMBER}}</span>
+      <h2>{{PAGE_TITLE}}</h2>
+      <p class="lead">{{LEAD_TEXT}}</p>
+      <p>{{BODY_TEXT}}</p>
+      <div class="quote">{{QUOTE}}</div>
+    </div>
+    <div class="page-number">{{PAGE_NUMBER}}</div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LinkedIn PDF Slideshow</title>
+  <style>
+    @page { size: 216mm 270mm; margin: 0; }
+
+    :root {
+      --ink: #050505;
+      --surface: #101417;
+      --paper: #f5f7fa;
+      --muted: #aebdca;
+      --cyan: #00a6ff;
+      --steel: #547188;
+      --orange: #f59e0b;
+      --line: rgba(245, 247, 250, 0.18);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--paper);
+      background: #d8dde3;
+      font-family: "Avenir Next", Avenir, Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      position: relative;
+      width: 216mm;
+      height: 270mm;
+      overflow: hidden;
+      background: var(--ink);
+      page-break-after: always;
+      break-after: page;
+    }
+
+    .page--light {
+      color: #101417;
+      background: #f2f4f7;
+      --line: rgba(16, 20, 23, 0.16);
+      --muted: #547188;
+    }
+
+    .page__halo {
+      position: absolute;
+      width: 165mm;
+      height: 165mm;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 166, 255, 0.28) 0%, rgba(0, 166, 255, 0.07) 36%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .page__halo--top-right { top: -82mm; right: -58mm; }
+    .page__halo--bottom-left { bottom: -85mm; left: -70mm; }
+
+    .page__chrome,
+    .page__footer {
+      position: absolute;
+      left: 15mm;
+      right: 15mm;
+      display: flex;
+      justify-content: space-between;
+      gap: 8mm;
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .page__chrome {
+      top: 12mm;
+      color: var(--muted);
+    }
+
+    .page__footer {
+      bottom: 11mm;
+      align-items: flex-end;
+      color: var(--muted);
+    }
+
+    .page__footer span:first-child {
+      max-width: 142mm;
+      font-size: 6.5pt;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      line-height: 1.35;
+      text-transform: none;
+    }
+
+    .page__content {
+      position: absolute;
+      top: 38mm;
+      right: 15mm;
+      bottom: 28mm;
+      left: 15mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .page__content--top { justify-content: flex-start; }
+    .page__content--bottom { justify-content: flex-end; }
+
+    .eyebrow {
+      margin: 0 0 5mm;
+      color: var(--cyan);
+      font-size: 9pt;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    h1, h2, p { margin-top: 0; }
+
+    h1 {
+      max-width: 174mm;
+      margin-bottom: 7mm;
+      font-size: 39pt;
+      font-weight: 800;
+      letter-spacing: -0.055em;
+      line-height: 0.94;
+    }
+
+    h1.hero { max-width: 181mm; font-size: 54pt; }
+    h1.compact { max-width: 175mm; font-size: 32pt; line-height: 0.98; }
+
+    h2 {
+      margin-bottom: 5mm;
+      font-size: 24pt;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .lead {
+      max-width: 144mm;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 15pt;
+      font-weight: 500;
+      line-height: 1.38;
+    }
+
+    .accent { color: var(--cyan); }
+    .warning { color: var(--orange); }
+
+    .quote {
+      max-width: 155mm;
+      margin: 0;
+      font-size: 27pt;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+    }
+
+    .quote::before { content: "«"; color: var(--cyan); }
+    .quote::after { content: "»"; color: var(--cyan); }
+
+    .stack {
+      display: grid;
+      gap: 4.5mm;
+      width: 100%;
+    }
+
+    .stack__item {
+      display: grid;
+      grid-template-columns: 13mm 1fr;
+      gap: 6mm;
+      align-items: baseline;
+      padding: 4.5mm 0;
+      border-bottom: 0.45mm solid var(--line);
+      font-size: 18pt;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+    }
+
+    .stack__number {
+      color: var(--cyan);
+      font-size: 10pt;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5mm;
+      width: 100%;
+    }
+
+    .card {
+      min-height: 55mm;
+      padding: 7mm;
+      border: 0.45mm solid var(--line);
+      background: rgba(245, 247, 250, 0.035);
+    }
+
+    .page--light .card { background: rgba(16, 20, 23, 0.035); }
+
+    .card__number {
+      display: block;
+      margin-bottom: 9mm;
+      color: var(--cyan);
+      font-size: 8pt;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+    }
+
+    .card h2 { font-size: 19pt; }
+
+    .card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 11.5pt;
+      line-height: 1.4;
+    }
+
+    .metric {
+      display: flex;
+      align-items: flex-end;
+      gap: 6mm;
+      margin: 5mm 0 9mm;
+    }
+
+    .metric__value {
+      color: var(--cyan);
+      font-size: 74pt;
+      font-weight: 800;
+      letter-spacing: -0.08em;
+      line-height: 0.8;
+    }
+
+    .metric__label {
+      max-width: 75mm;
+      margin-bottom: 4mm;
+      color: var(--muted);
+      font-size: 14pt;
+      font-weight: 700;
+      line-height: 1.12;
+    }
+
+    .case-label {
+      margin-bottom: 6mm;
+      color: var(--cyan);
+      font-size: 10pt;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .cta-box {
+      max-width: 155mm;
+      padding: 10mm 0 8mm;
+      border-top: 1mm solid var(--cyan);
+    }
+
+    .cta-box p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14pt;
+      line-height: 1.35;
+    }
+
+    .visual-object {
+      position: absolute;
+      right: 15mm;
+      bottom: 25mm;
+      width: 73mm;
+      height: 73mm;
+      border: 1.4mm solid var(--cyan);
+      border-radius: 50%;
+      opacity: 0.95;
+    }
+
+    .visual-object::before,
+    .visual-object::after {
+      position: absolute;
+      content: "";
+      background: var(--cyan);
+    }
+
+    .visual-object::before { top: 50%; left: -17mm; width: 107mm; height: 0.8mm; }
+    .visual-object::after { top: -17mm; left: 50%; width: 0.8mm; height: 107mm; }
+
+    .page--closing { background: linear-gradient(135deg, #050505 0%, #071d2b 100%); }
+  </style>
+</head>
+<body>
+  <!-- Seite 1: Hook -->
+  <section class="page">
+    <div class="page__halo page__halo--top-right"></div>
+    <div class="page__chrome"><span>THOUGHT LEADERSHIP · 01</span><span>ROGER BASLER DE ROCA</span></div>
+    <div class="page__content">
+      <p class="eyebrow">[THEMA]</p>
+      <h1 class="hero">[Eine <span class="accent">haltbare</span> Aussage, die den Feed stoppt.]</h1>
+      <p class="lead">[1 bis 2 Sätze, die das Problem oder die Spannung glaubwürdig einordnen.]</p>
+    </div>
+    <div class="visual-object" aria-hidden="true"></div>
+    <footer class="page__footer"><span>[Kontext oder Quelle, falls erforderlich]</span><span>01 / 10</span></footer>
+  </section>
+
+  <!-- Seite 2: Rehook -->
+  <section class="page page--light">
+    <div class="page__chrome"><span>DER KONTRAST</span><span>ROGER BASLER DE ROCA</span></div>
+    <div class="page__content">
+      <p class="eyebrow">WAS VIELE ÜBERSEHEN</p>
+      <h1>[Der verbreitete <span class="accent">Irrtum</span> in einem klaren Satz.]</h1>
+      <p class="lead">[Kurze Erklärung, weshalb die Standardannahme zu kurz greift. Die zentrale Antwort noch offen lassen.]</p>
+    </div>
+    <footer class="page__footer"><span>[Optionaler Kontext]</span><span>02 / 10</span></footer>
+  </section>
+
+  <!-- Seite 3: Konsequenz -->
+  <section class="page">
+    <div class="page__halo page__halo--bottom-left"></div>
+    <div class="page__chrome"><span>DIE KONSEQUENZ</span><span>ROGER BASLER DE ROCA</span></div>
+    <div class="page__content page__content--bottom">
+      <p class="eyebrow">PRAXIS</p>
+      <h1>[So zeigt sich der <span class="warning">Preis</span> im Alltag.]</h1>
+      <p class="lead">[Konkretes Szenario mit Menschen, Prozess, Risiko oder verpasster Chance.]</p>
+    </div>
+    <footer class="page__footer"><span>[Beobachtung oder Praxisbeispiel]</span><span>03 / 10</span></footer>
+  </section>
+
+  <!-- Seite 4: Reframing -->
+  <section class="page page--light">
+    <div class="page__chrome"><span>REFRAMING</span><span>ROGER BASLER DE ROCA</span></div>
+    <div class="page__content">
+      <p class="eyebrow">DIE URSACHE</p>
+      <p class="quote">Das eigentliche Problem ist nicht [Symptom], sondern [Ursache].</p>
+    </div>
+    <footer class="page__footer"><span>[Knappe Quelle oder Einordnung]</span><span>04 / 10</span></footer>
+  </section>
+
+  <!-- Seite 5: Mechanismus -->
+  <section class="page">
+    <div class="page__chrome"><span>WIE ES WIRKT</span><span>ROGER BASLER DE ROCA</span></div>
+    <div class="page__content page__content--top">
+      <p class="eyebrow">MECHANISMUS</p>
+      <h1 class="compact">[Der Zusammenhang in drei klaren Schritten.]</h1>
+      <div class="stack">
+        <div class="stack__item"><span class="stack__number">01</span><span>[Auslöser oder Voraussetzung]</span></div>
+        <div class="stack__item"><span class="stack__number">02</span><span>[Verhalten oder Prozess]</span></div>
+        <div class="stack__item"><span class="stack__number">03</span><span>[Resultat oder Folge]</span></div>
+      </div>
+    </div>
+    <footer class="page__footer"><span>[Quelle, falls erforderlich]</span><span>05 / 10</span></footer>
+  </section>
+
+  <!-- Seite 6: Evidenz -->
+  <section class="page page--light">
+    <div class="page__chrome"><span>REALITY CHECK</span><span>ROGER BASLER DE ROCA</span></div>
+    <div class="page__content">
+      <p class="eyebrow">EVIDENZ</p>
+      <div class="metric"><span class="metric__value">[00%]</span><span class="metric__label">[Wofür diese Kennzahl steht.]</span></div>
+      <h2>[Was diese Zahl für Entscheidungen tatsächlich bedeutet.]</h2>
+      <p class="lead">[Interpretation einschliesslich Grenze: Was belegt die Zahl und was eben nicht?]</p>
+    </div>
+    <footer class="page__footer"><span>[Vollständige Kurzquelle: Autor:in, Titel, Jahr, URL]</span><span>06 / 10</span></footer>
+  </section>
+
+  <!-- Seite 7: Beispiel -->
+  <section class="page">
+    <div class="page__halo page__halo--top-right"></div>
+    <div class="page__chrome"><span>BEISPIEL</span><span>ROGER BASLER DE ROCA</span></div>
+    <div class="page__content">
+      <p class="case-label">VOM PRINZIP ZUR PRAXIS</p>
+      <h1 class="compact">[Ein Fall, der die Kernaussage konkret macht.]</h1>
+      <p class="lead">[Was geschah, weshalb und mit welcher relevanten Konsequenz? Bei anonymen Beispielen klar kennzeichnen.]</p>
+    </div>
+    <footer class="page__footer"><span>[Fallquelle oder Kennzeichnung: anonymisiertes Beispiel]</span><span>07 / 10</span></footer>
+  </section>
+
+  <!-- Seite 8: Framework -->
+  <section class="page page--light">
+    <div class="page__chrome"><span>ENTSCHEIDUNGSLOGIK</span><span>ROGER BASLER DE ROCA</span></div>
+    <div class="page__content page__content--top">
+      <p class="eyebrow">FRAMEWORK</p>
+      <h1 class="compact">[Der Rahmen für eine bessere Entscheidung.]</h1>
+      <div class="grid">
+        <article class="card"><span class="card__number">01</span><h2>[Prüffrage]</h2><p>[Kurze Erläuterung.]</p></article>
+        <article class="card"><span class="card__number">02</span><h2>[Prüffrage]</h2><p>[Kurze Erläuterung.]</p></article>
+        <article class="card"><span class="card__number">03</span><h2>[Prüffrage]</h2><p>[Kurze Erläuterung.]</p></article>
+        <article class="card"><span class="card__number">04</span><h2>[Prüffrage]</h2><p>[Kurze Erläuterung.]</p></article>
+      </div>
+    </div>
+    <footer class="page__footer"><span>[Eigene Darstellung oder Quellenhinweis]</span><span>08 / 10</span></footer>
+  </section>
+
+  <!-- Seite 9: Handlung -->
+  <section class="page">
+    <div class="page__halo page__halo--bottom-left"></div>
+    <div class="page__chrome"><span>WAS JETZT ZU TUN IST</span><span>ROGER BASLER DE ROCA</span></div>
+    <div class="page__content page__content--top">
+      <p class="eyebrow">HANDLUNG</p>
+      <h1 class="compact">[Drei priorisierte Schritte statt zehn guter Vorsätze.]</h1>
+      <div class="stack">
+        <div class="stack__item"><span class="stack__number">01</span><span>[Sofortmassnahme]</span></div>
+        <div class="stack__item"><span class="stack__number">02</span><span>[Entscheid oder Pilot]</span></div>
+        <div class="stack__item"><span class="stack__number">03</span><span>[Messpunkt oder Governance]</span></div>
+      </div>
+    </div>
+    <footer class="page__footer"><span>[Verantwortung oder nächster konkreter Termin]</span><span>09 / 10</span></footer>
+  </section>
+
+  <!-- Seite 10: Abschluss und CTA -->
+  <section class="page page--closing">
+    <div class="page__halo page__halo--top-right"></div>
+    <div class="page__chrome"><span>FAZIT</span><span>ROGER BASLER DE ROCA</span></div>
+    <div class="page__content">
+      <p class="eyebrow">DIE KONSEQUENZ</p>
+      <h1>[Die eine Erkenntnis, die bleiben soll.]</h1>
+      <div class="cta-box">
+        <p>[Sinnvoller nächster Schritt: Diskussion, Vertiefung, Ressource oder Kontakt.]</p>
+      </div>
+    </div>
+    <footer class="page__footer"><span>rogerbasler.ch · @fragroger</span><span>10 / 10</span></footer>
+  </section>
+</body>
+</html>
