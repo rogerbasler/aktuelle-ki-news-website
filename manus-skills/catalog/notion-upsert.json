@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-24T09:22:14Z",
+  "generated_at": "2026-08-24T09:26:34Z",
   "skills": [
     {
       "slug": "aibad-news-skill",
       "display_name": "aibad-news-skill",
-      "description": ">",
+      "description": "Wandelt AI-Bad-News-Artikel, Blogtexte, Notizen oder URLs in faktenorientierte Instagram-Carousel-Posts im AI-Bad-News Dark-Graffiti-Tech-Stil um. Verwende diesen Skill immer wenn der Nutzer: \"AI Bad News\", \"aibad.news\", \"Bad News Carousel\", \"AI-Bad-News-Post\", \"Blog zu AI Bad News Instagram\", \"Palantir/CIA Carousel\", \"kritische KI-News als Carousel\" oder \"/aibad-news-skill\" sagt. Output: 10 Slide-Bilder im 4:5-Format, Caption mit Schweizer Rechtschreibung, Review vor Posting, optional direkter Post via Instagram MCP mit CTA auf @fragRoger und aibad.news.",
       "category": "Recherche & Analyse",
       "output_format": "Markdown",
       "trigger_examples": "\"aibad news skill\", \"Hilfe mit aibad news skill\"",
@@ -18,7 +18,7 @@
     {
       "slug": "aigoodnews-to-instagram",
       "display_name": "aigoodnews-to-instagram",
-      "description": ">",
+      "description": "Wandelt Blog-Artikel oder Texte in fertige Instagram Carousel-Posts im AiGoodNews CI/CD um. Verwende diesen Skill immer wenn der Nutzer: einen Blog in einen AiGoodNews-Post umwandeln will, \"AiGoodNews Skill\", \"AiGoodNews Carousel\", \"AiGoodNews Post\", \"gute News zu Instagram\" sagt. Output: 10 AI-generierte Slide-Bilder (480×600px) im AiGoodNews Graffiti-TEDx-Design (Grün/Gold/Dunkel) + Caption + direkter Post via Instagram MCP. Das erste Slide (Hook) enthält immer ein AI-generiertes Bild als Hintergrund.",
       "category": "Kommunikation",
       "output_format": "Markdown",
       "trigger_examples": "\"aigoodnews to instagram\", \"Hilfe mit aigoodnews to instagram\"",
@@ -46,7 +46,7 @@
     {
       "slug": "black-blog-to-instagram-carousel",
       "display_name": "black-blog-to-instagram-carousel",
-      "description": ">",
+      "description": "Wandelt Blog-Artikel, Texte oder URLs in fertige Instagram Carousel-Posts im fragRoger Dark-Cinematic-TED-Talk-Stil um. Verwende diesen Skill immer wenn der Nutzer einen Blog in einen Instagram-Post oder Carousel umwandeln will, z. B. \"repurpose diesen Blog\", \"mach daraus einen Carousel\", \"Blog zu Instagram\", \"Content repurposing\", \"erstelle einen Post aus diesem Artikel\", \"Instagram-Post aus Blog\" oder \"Carousel aus Blogartikel\" sagt. Output: 10 Slide-Bilder im 4:5-Format mit bildstarken Baller-Motiven auf Slide 1-3 und Slide 9, bold-cinematischem Design, Caption und optionalem Instagram-Posting nach Review-Freigabe.",
       "category": "Kommunikation",
       "output_format": "Markdown",
       "trigger_examples": "\"black blog to instagram carousel\", \"Hilfe mit black blog to instagram carousel\"",
@@ -60,7 +60,7 @@
     {
       "slug": "black-blog-to-linkedin-pdf-slideshow",
       "display_name": "black-blog-to-linkedin-pdf-slideshow",
-      "description": ">",
+      "description": "Wandelt Blog-Artikel, Fachtexte, URLs, Notizen oder Dokumente in professionelle LinkedIn-PDF-Slideshows im fragRoger Black Editorial Stil um. Unterstützt sowohl HTML/WeasyPrint-Rendering als auch direkte Bilderzeugung jeder Slide via GPT Image 2 (gpt-image-2). Verwende diesen Skill immer wenn der Nutzer sagt: „Blog zu LinkedIn“, „LinkedIn PDF“, „LinkedIn Slideshow“, „LinkedIn Carousel als PDF“, „mit GPT Image2 erstellen“, „mit Image2 erstellen“, „Folien mit GPT Image“ oder Inhalte als visuelle LinkedIn-Präsentation aufbereiten will. Output: 10 Slide-Bilder im 4:5-Format (GPT Image 2 oder HTML/PDF), gebündeltes PDF, Blueprint und LinkedIn-Post-Entwurf.",
       "category": "Kommunikation",
       "output_format": "PDF",
       "trigger_examples": "\"black blog to linkedin pdf slideshow\", \"Hilfe mit black blog to linkedin pdf slideshow\"",
@@ -102,7 +102,7 @@
     {
       "slug": "builtin-llm-models",
       "display_name": "builtin-llm-models",
-      "description": ">",
+      "description": "Reference for Manus's built-in LLM catalog and how to call it correctly. Read this BEFORE writing any script that calls LLMs in bulk (summarization, translation, classification, extraction, deep analysis, judging/evaluation, map/parallel fan-out) inside the sandbox, AND before using the built-in LLM in a webdev project (invokeLLM / listLLMModels). Use it to discover which models exist, each model's price/capabilities, how to pick one, the exact request shapes (thinking/reasoning, JSON-schema structured output, vision, tools), and the per-model gotchas (max-token handling, reasoning syntax) verified against the live proxy.",
       "category": "Produktivität",
       "output_format": "Markdown",
       "trigger_examples": "\"builtin llm models\", \"Hilfe mit builtin llm models\"",
@@ -130,7 +130,7 @@
     {
       "slug": "content-to-slideshow",
       "display_name": "content-to-slideshow",
-      "description": ">",
+      "description": "Wandelt beliebige Inhalte (Blog-Artikel, Texte, URLs, Notizen, Dokumente) in fertige Präsentationen (Slideshows) im Urban Graffiti Tech Stil um. Verwende diesen Skill immer wenn der Nutzer: \"mach daraus Slides\", \"erstelle eine Präsentation\", \"Blog zu Slideshow\", \"Content zu Slides\", \"erstelle eine Slideshow aus diesem Artikel/Text/Dokument\", \"repurpose als Präsentation\" sagt. Output: Strukturierte Präsentation (HTML/Image-Slides) mit Problem-Solution-Journey Struktur, exportierbar als PPTX.",
       "category": "Kreativ & Design",
       "output_format": "Markdown",
       "trigger_examples": "\"content to slideshow\", \"Hilfe mit content to slideshow\"",
@@ -186,7 +186,7 @@
     {
       "slug": "ebook-html-pdf",
       "display_name": "ebook-html-pdf",
-      "description": ">",
+      "description": "Workflow for creating premium A4 HTML eBooks and handouts that are exported as PDF. Use when the user asks for an eBook-like handout, PDF report, conference handout, executive guide, workbook, keynote companion, or visually designed document with cover, table of contents, chapter pages, callouts, prompt cards, workflows, resource links, sources, and final PDF export.",
       "category": "Lernen & Entwicklung",
       "output_format": "PDF",
       "trigger_examples": "\"ebook html pdf\", \"Hilfe mit ebook html pdf\"",
@@ -256,7 +256,7 @@
     {
       "slug": "instagram-pink-baller-carousel",
       "display_name": "instagram-pink-baller-carousel",
-      "description": ">",
+      "description": "Erstellt 10-Slide-Instagram-Carousel-Posts im hellrosa/weissen fragRoger Pink-Baller-Stil aus PDFs, Blog-Artikeln, Texten, URLs oder Notizen. Verwenden bei: Instagram Pink Carousel, hellrosa Carousel, pinke Baller-Slides, Content zu Instagram in Pink, PDF zu Instagram Carousel, Blog zu Pink Carousel, Roger Pink Stil, helle Instagram Slides mit starken Bildmotiven. Output: 10 Slide-Bilder im 4:5-Format mit bildstarken Baller-Motiven auf Slide 1-3 und Slide 9, bold-cinematischem Pink-Poster-Design, Caption, Review-Paket und optionales Posting nach expliziter Freigabe.",
       "category": "Kommunikation",
       "output_format": "Markdown",
       "trigger_examples": "\"instagram pink baller carousel\", \"Hilfe mit instagram pink baller carousel\"",
@@ -270,7 +270,7 @@
     {
       "slug": "linkedin-slides",
       "display_name": "linkedin-slides",
-      "description": ">",
+      "description": "Creates 10-slide LinkedIn presentations (carousels) in Roger's \"White & Blue Graffiti\" style. Use when the user asks for: \"linkedin slides\", \"white and blue slides\", \"graffiti style linkedin\", \"Avenir font slides\", or \"create a linkedin carousel\". Output: 10 highly engaging slides with Hook, Problem, Solution, Facts, and CTA, using Avenir font, exported as PPTX or images.",
       "category": "Kommunikation",
       "output_format": "Markdown",
       "trigger_examples": "\"linkedin slides\", \"Hilfe mit linkedin slides\"",
@@ -424,7 +424,7 @@
     {
       "slug": "roger-book-english",
       "display_name": "roger-book-english",
-      "description": ">",
+      "description": "Workflow for writing, translating, and formatting professional English-language non-fiction books by Roger Basler de Roca in BoD (Books on Demand) format. Use when writing or translating Roger's books into English, formatting an English manuscript for BoD 12x19cm, or ensuring internationally verified sources.",
       "category": "Lernen & Entwicklung",
       "output_format": "Markdown",
       "trigger_examples": "\"roger book english\", \"Hilfe mit roger book english\"",
@@ -438,7 +438,7 @@
     {
       "slug": "roger-book-german",
       "display_name": "roger-book-german",
-      "description": ">",
+      "description": "Workflow for writing, revising, and formatting professional German-language non-fiction books by Roger Basler de Roca in BoD (Books on Demand) format. Use when writing or rewriting German book chapters, formatting a manuscript for BoD 12x19cm, or ensuring consistent author voice and factual accuracy.",
       "category": "Lernen & Entwicklung",
       "output_format": "Markdown",
       "trigger_examples": "\"roger book german\", \"Hilfe mit roger book german\"",
@@ -452,7 +452,7 @@
     {
       "slug": "sema-mvnt",
       "display_name": "sema-mvnt",
-      "description": ">-",
+      "description": "Spezialisierter Skill fuer das Pilates Studio SEMA MVNT in Mexiko. Enthaelt das vollstaendige Angebot (digitale Infrastruktur, Module, Preise), Brand-Guidelines (Farben, Typografie, Bildsprache, Logo-Pfade) und KI-Bild-Prompts. Verwende diesen Skill immer wenn der Nutzer SEMA MVNT, Sema, Pilates Mexiko Angebot, SEMA Praesentation, SEMA Bilder, SEMA Logo oder SEMA Angebot sagt oder Inhalte fuer diesen Kunden erstellt. Output: Angebots-Praesentationen, Mood-Bilder, Social Media Posts, E-Mails, Angebots-Updates im SEMA MVNT CI/CD.",
       "category": "Produktivität",
       "output_format": "Markdown",
       "trigger_examples": "\"sema mvnt\", \"Hilfe mit sema mvnt\"",
@@ -480,7 +480,7 @@
     {
       "slug": "sketchnote-to-instagram",
       "display_name": "sketchnote-to-instagram",
-      "description": ">",
+      "description": "Erstellt aus Sketchnotes, Whiteboard-Grafiken, handgezeichneten Frameworks, Bildern oder Rohinhalten datenorientierte, plakative 10-Slide-Instagram-Carousels im Roger-Basler-de-Roca-Sketchnote-Stil. Verwenden bei: Sketchnote zu Instagram, aus Grafik Carousel machen, handgezeichnete Slides, Roger-Sketchnote, datenorientierter Instagram-Post, plakative Sketchnote-Slides, CTA-Slide am Ende.",
       "category": "Kommunikation",
       "output_format": "Markdown",
       "trigger_examples": "\"sketchnote to instagram\", \"Hilfe mit sketchnote to instagram\"",
@@ -606,7 +606,7 @@
     {
       "slug": "thinkroger-instagram-carousel",
       "display_name": "thinkroger-instagram-carousel",
-      "description": ">",
+      "description": "Converts articles, texts, notes, or URLs into fact-based, decision-relevant 10-slide Instagram carousels in English for an international audience under the #ThinkRoger brand. Use this skill whenever the user says: \"#ThinkRoger\", \"ThinkRoger carousel\", \"ThinkRoger English post\", \"create an international ThinkRoger carousel\", \"fact-based English carousel\", or \"/thinkroger-skill\". Output: 10 slide images in 4:5 format (dark cinematic editorial style), an English caption, source notes, and mandatory review before optional Instagram posting.",
       "category": "Kommunikation",
       "output_format": "Markdown",
       "trigger_examples": "\"thinkroger instagram carousel\", \"Hilfe mit thinkroger instagram carousel\"",
@@ -620,7 +620,7 @@
     {
       "slug": "thinkroger-instagram-carousel-purple",
       "display_name": "thinkroger-instagram-carousel-purple",
-      "description": ">",
+      "description": "Converts articles, texts, notes, or URLs into fact-based, constructive, and positive 10-slide Instagram carousels in English for an international audience under the #ThinkRoger brand. Use this skill whenever the user says: \"/thinkroger-instagram-carousel-purple\", \"ThinkRoger purple carousel\", \"constructive English carousel\", or explicitly requests the purple #ThinkRoger style. Output: 10 slide images in 4:5 format (dark cinematic editorial style with Bright Purple #8B5CF6 accent), an English caption, source notes, and mandatory review before optional Instagram posting.",
       "category": "Kommunikation",
       "output_format": "Markdown",
       "trigger_examples": "\"thinkroger instagram carousel purple\", \"Hilfe mit thinkroger instagram carousel purple\"",

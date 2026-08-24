@@ -47,8 +47,23 @@ def sha256_tree(root: Path) -> str:
 
 
 def front_matter_value(content: str, key: str) -> str:
-    match = re.search(rf"^{re.escape(key)}:\s*(.+)$", content, flags=re.MULTILINE)
-    return match.group(1).strip().strip('"') if match else ""
+    lines = content.splitlines()
+    prefix = f"{key}:"
+    for index, line in enumerate(lines):
+        if not line.startswith(prefix):
+            continue
+        value = line[len(prefix):].strip().strip('"')
+        if value not in {">", "|", ">-", "|-"}:
+            return value
+        continuation: list[str] = []
+        for next_line in lines[index + 1:]:
+            if not next_line.strip():
+                continue
+            if not next_line.startswith((" ", "\t")):
+                break
+            continuation.append(next_line.strip())
+        return " ".join(continuation)
+    return ""
 
 
 def one_line_description(content: str) -> str:
