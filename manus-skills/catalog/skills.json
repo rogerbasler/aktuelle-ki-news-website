@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-24T09:26:34Z",
-  "source_directory": "/home/ubuntu/aktuelle-ki-news-website/manus-skills/skills",
-  "skill_count": 64,
+  "generated_at": "2026-09-01T07:04:49Z",
+  "source_directory": "/home/ubuntu/skills-sync-repo/manus-skills/skills",
+  "skill_count": 65,
   "skills": [
     {
       "slug": "aibad-news-skill",
@@ -227,6 +227,20 @@
       "file_count": 17,
       "byte_size": 82461,
       "tree_sha256": "6fa0dbabaa7ea6d430b3142e881b9c7dc1bb0cc78573ce72733d2b0115a0aea1"
+    },
+    {
+      "slug": "geo-audit-rezeptbuch",
+      "display_name": "geo-audit-rezeptbuch",
+      "description": "Erstellt evidenzbasierte GEO-Analysen, technische Optimierungspläne und A4-PDF-Rezeptbücher für Firmen, KMU, B2B-Dienstleister, lokale Unternehmen, E-Commerce, Industrie, Professional Speaker und regulierte Branchen. Verwenden bei: GEO Analyse, Generative Engine Optimization, KI-Sichtbarkeit, AI Search Audit, AEO, ChatGPT-Suche optimieren, Google AI Mode, Google Search Console, Bing Webmaster Tools, IndexNow, Longtail Keywords, FAQ-Architektur, Schema Markup, robots.txt, Crawler-Policy oder GEO-Rezeptbuch. Verwenden auch bei: einfacher GEO-Plan, GEO in drei Stufen, GEO für Webmaster und Content, GEO Aufgaben verteilen, Webmaster-Checkliste oder Content-Checkliste nach GEO-Audit.",
+      "category": "Produktivität",
+      "output_format": "Markdown",
+      "trigger_examples": "\"geo audit rezeptbuch\", \"Hilfe mit geo audit rezeptbuch\"",
+      "source_path": "skills/geo-audit-rezeptbuch",
+      "github_url": "https://github.com/rogerbasler/aktuelle-ki-news-website/tree/main/manus-skills/skills/geo-audit-rezeptbuch",
+      "skill_file_url": "https://github.com/rogerbasler/aktuelle-ki-news-website/blob/main/manus-skills/skills/geo-audit-rezeptbuch/SKILL.md",
+      "file_count": 11,
+      "byte_size": 84126,
+      "tree_sha256": "65175ff9bfe405ab57f699f20f213c1ab6b1d8158da67c70ad377df5ad68b569"
     },
     {
       "slug": "gws-best-practices",
