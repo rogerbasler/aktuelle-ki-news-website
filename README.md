@@ -1,26 +1,37 @@
-# Aktuelle KI-News Website
+# Social Listening Intelligence Dashboard
 
-Mobile responsive Wochenwebsite mit den zehn wichtigsten KI-News vom **16. bis 18. September 2026**.
+Öffentliches, wöchentlich aktualisiertes Social-Listening-Dashboard für **Roger Basler de Roca** mit Fokus auf Schweizer und DACH-KMU.
 
-Die Ausgabe ordnet jede Meldung einer von drei Perspektiven zu:
+## Zweck
 
-1. Regulierung und Ethik
-2. Stimmen und Gerüchte
-3. Auswirkungen auf Arbeitsmarkt und Gesellschaft
+Das Dashboard verdichtet öffentliche Markt-, Marken-, Wettbewerbs- und Zielgruppensignale zu konkreten Entscheidungen. Es trennt konsequent zwischen **Fakt**, **Interpretation** und **Hypothese**. Quellen werden nach Currency, Reliability, Authority und Purpose geprüft.
 
-Alle acht vorgegebenen Quellen wurden nach dem CRAP-Modell geprüft: Currency, Relevance, Authority und Purpose. Faktische Kernaussagen wurden, soweit möglich, gegen Primärquellen oder unabhängige Berichte geprüft. Unternehmensangaben, Prognosen, Prozessbehauptungen und politische Positionen sind sichtbar gekennzeichnet.
+## Beobachtungsfelder
 
-## Quellen
+1. **Eigene Marke:** Roger Basler de Roca, #fragRoger, ThinkRoger und ki-power.me
+2. **Themenmarkt:** KI im Unternehmen, AI Agents, KI-Regulierung, KI und Arbeitsmarkt, Educational Consulting
+3. **Wettbewerb:** öffentlich sichtbare deutschsprachige KI-Berater:innen, Speaker und Weiterbildungsanbieter
+4. **Zielgruppen-Signale:** Schweizer und DACH-KMU, Geschäftsleitungen sowie Marketing-, HR- und Innovationsverantwortliche
 
-TechCrunch, OpenAI Blog, Reuters, WIRED, The Verge, MIT Technology Review, VentureBeat und Ars Technica.
+## Aktualisierung und Archiv
 
-## Design
+Die Startseite `index.html` bleibt das einzige aktuelle Dashboard. Vor jeder wöchentlichen Aktualisierung wird der bisherige Stand als datierter HTML-Snapshot unter `archiv/social-listening/JJJJ/` gesichert. Frühere KI-News- und Tool-Ausgaben bleiben ebenfalls im Archiv erhalten.
 
-Die Website verbindet Windows-95-Chrome, CRT-Raster und Pixeltypografie mit aktueller Lesbarkeit, barrierearmen Kontrasten und einem mobilen Einspalten-Layout.
+Der aktuelle strukturierte Datenstand liegt in `data/social-listening/current.json`. Der vollständige Quellenbericht steht in [`RESEARCH.md`](./RESEARCH.md).
 
-## Aktualität
+## Reproduzierbarer Build
 
-Stand: **18. September 2026**  
-Zeitfenster: **16. bis 18. September 2026, Redaktionsschluss 11:53 UTC**
+```bash
+python3 scripts/archive_current_dashboard.py
+python3 scripts/build_social_dashboard.py
+```
 
-Der ausführliche Quellenbericht steht in [`RESEARCH.md`](./RESEARCH.md).
+Vor dem Ersetzen der aktuellen Daten archiviert `scripts/archive_current_dashboard.py` das bestehende HTML und JSON. Die Datenanreicherung für den CRAP-Audit erfolgt mit `scripts/enrich_social_report.py`. Alle Skripte verwenden nur die Python-Standardbibliothek.
+
+## Datenhinweis
+
+Interne Instagram-Insights werden nur verwendet, wenn im verbundenen Instagram-Connector ein aktives Konto ausgewählt ist. Ohne Kontoauswahl nutzt das Dashboard ausschliesslich öffentlich sichtbare Informationen und weist die Datenlücke explizit aus.
+
+## Veröffentlichung
+
+Das Repository wird über GitHub Pages mit der Custom Domain [news.fragroger.ai](http://news.fragroger.ai/) veröffentlicht.

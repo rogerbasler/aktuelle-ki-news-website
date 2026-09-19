@@ -1,16 +1,30 @@
 {
-  "analysen": [
+  "version": 2,
+  "updated_at": "2026-09-19T10:58:00+02:00",
+  "eintraege": [
     {
+      "type": "KI-News",
+      "kw": "38",
+      "jahr": "2026",
+      "datum": "2026-09-18",
+      "title": "KI-News der Woche, 18. September 2026",
+      "file": "archiv/2026/kw38-2026-09-18-ki-news.html"
+    },
+    {
+      "type": "KI-Tool-Analyse",
       "kw": "32",
       "jahr": "2026",
       "datum": "2026-08-09",
+      "title": "Top 5 KI-Tools der KW 32/2026",
       "file": "archiv/2026/kw32-2026-08-09.html",
       "tools": ["Wispr Flow Notetaker", "Framer 3.0", "Atlaso", "Soloop", "AdAnt AI"]
     },
     {
+      "type": "KI-Tool-Analyse",
       "kw": "31",
       "jahr": "2026",
       "datum": "2026-08-02",
+      "title": "Top 5 KI-Tools der KW 31/2026",
       "file": "archiv/2026/kw31-2026-08-02.html",
       "tools": ["WRITER", "Figma Make", "MiniMax H3", "Perplexity Computer", "Bloome.im"]
     }
