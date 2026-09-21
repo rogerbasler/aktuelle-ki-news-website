@@ -1,7 +1,16 @@
 {
   "version": 2,
-  "updated_at": "2026-09-19T10:58:00+02:00",
+  "updated_at": "2026-09-21T04:02:47+02:00",
   "eintraege": [
+    {
+      "type": "Social Listening",
+      "kw": "38",
+      "jahr": "2026",
+      "datum": "2026-09-19",
+      "title": "KMU kaufen und skalieren KI nicht über Tempo, sondern über Kontrolle, Integration und nachweisbaren Nutzen",
+      "file": "archiv/social-listening/2026/kw38-2026-09-19.html",
+      "data": "archiv/social-listening/2026/kw38-2026-09-19.json"
+    },
     {
       "type": "KI-News",
       "kw": "38",
@@ -17,7 +26,13 @@
       "datum": "2026-08-09",
       "title": "Top 5 KI-Tools der KW 32/2026",
       "file": "archiv/2026/kw32-2026-08-09.html",
-      "tools": ["Wispr Flow Notetaker", "Framer 3.0", "Atlaso", "Soloop", "AdAnt AI"]
+      "tools": [
+        "Wispr Flow Notetaker",
+        "Framer 3.0",
+        "Atlaso",
+        "Soloop",
+        "AdAnt AI"
+      ]
     },
     {
       "type": "KI-Tool-Analyse",
@@ -26,7 +41,13 @@
       "datum": "2026-08-02",
       "title": "Top 5 KI-Tools der KW 31/2026",
       "file": "archiv/2026/kw31-2026-08-02.html",
-      "tools": ["WRITER", "Figma Make", "MiniMax H3", "Perplexity Computer", "Bloome.im"]
+      "tools": [
+        "WRITER",
+        "Figma Make",
+        "MiniMax H3",
+        "Perplexity Computer",
+        "Bloome.im"
+      ]
     }
   ]
 }

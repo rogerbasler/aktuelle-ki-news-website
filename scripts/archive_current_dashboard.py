@@ -5,7 +5,7 @@ from __future__ import annotations
 
 import json
 import shutil
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -66,7 +66,7 @@ def main() -> None:
             "data": relative_json,
         })
     archive["version"] = 2
-    archive["updated_at"] = report_date.isoformat()
+    archive["updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
     ARCHIVE_INDEX.write_text(json.dumps(archive, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Archiviert: {relative_html} und {relative_json}")
 

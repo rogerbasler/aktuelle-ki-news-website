@@ -2,6 +2,13 @@
 
 Öffentliches, wöchentlich aktualisiertes Social-Listening-Dashboard für **Roger Basler de Roca** mit Fokus auf Schweizer und DACH-KMU.
 
+## Aktuelle Ausgabe
+
+**Datenstand:** 21. September 2026
+**Primärzeitraum:** 14. bis 21. September 2026
+**Umfang:** 8 priorisierte Signale, 17 deduplizierte Quellen und genau 3 Massnahmen
+**Hauptsignal:** Schweizer KMU nutzen KI bereits breit, doch Budget, Business Case, Kompetenz, Kapazität und Governance bremsen die verantwortete Integration.
+
 ## Zweck
 
 Das Dashboard verdichtet öffentliche Markt-, Marken-, Wettbewerbs- und Zielgruppensignale zu konkreten Entscheidungen. Es trennt konsequent zwischen **Fakt**, **Interpretation** und **Hypothese**. Quellen werden nach Currency, Reliability, Authority und Purpose geprüft.

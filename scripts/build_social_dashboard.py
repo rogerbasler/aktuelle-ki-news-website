@@ -147,10 +147,10 @@ def render_competitors(items: list[Any]) -> str:
         rows.append(f"""
           <tr>
             <th scope="row">{esc(first(item, 'competitor', 'actor', 'name', 'wettbewerber'))}</th>
-            <td>{esc(first(item, 'current_message', 'visible_positioning', 'message', 'positioning', 'aktuelle_botschaft'))}</td>
-            <td>{esc(first(item, 'resonance', 'market_relevance', 'resonanz', default='Nicht belastbar quantifiziert'))}</td>
-            <td>{esc(first(item, 'gap', 'boundary', 'luecke'))}</td>
-            <td>{esc(first(item, 'differentiation', 'our_position', 'unsere_differenzierung', default='Prüfbare Arbeitsresultate statt allgemeiner KI-Versprechen.'))}</td>
+            <td>{esc(first(item, 'current_message', 'current_positioning', 'visible_positioning', 'visible_offer', 'message', 'positioning', 'aktuelle_botschaft'))}</td>
+            <td>{esc(first(item, 'resonance', 'market_relevance', 'visible_offer', 'resonanz', default='Nicht belastbar quantifiziert'))}</td>
+            <td>{esc(first(item, 'gap', 'gap_or_risk', 'boundary', 'luecke'))}</td>
+            <td>{esc(first(item, 'differentiation', 'our_differentiation', 'our_position', 'unsere_differenzierung', default='Prüfbare Arbeitsresultate statt allgemeiner KI-Versprechen.'))}</td>
           </tr>""")
     if not rows:
         rows.append('<tr><td colspan="5">Keine belastbaren Wettbewerbsdaten in dieser Ausgabe.</td></tr>')
