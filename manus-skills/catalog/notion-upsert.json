@@ -464,20 +464,6 @@
       "tree_sha256": "ce317c7d65f8d7b69014b6b0b3a1b28f53ad374dc7e3a7c84973fb35eebc796c"
     },
     {
-      "slug": "sema-mvnt",
-      "display_name": "sema-mvnt",
-      "description": "Spezialisierter Skill fuer das Pilates Studio SEMA MVNT in Mexiko. Enthaelt das vollstaendige Angebot (digitale Infrastruktur, Module, Preise), Brand-Guidelines (Farben, Typografie, Bildsprache, Logo-Pfade) und KI-Bild-Prompts. Verwende diesen Skill immer wenn der Nutzer SEMA MVNT, Sema, Pilates Mexiko Angebot, SEMA Praesentation, SEMA Bilder, SEMA Logo oder SEMA Angebot sagt oder Inhalte fuer diesen Kunden erstellt. Output: Angebots-Praesentationen, Mood-Bilder, Social Media Posts, E-Mails, Angebots-Updates im SEMA MVNT CI/CD.",
-      "category": "Produktivität",
-      "output_format": "Markdown",
-      "trigger_examples": "\"sema mvnt\", \"Hilfe mit sema mvnt\"",
-      "source_path": "skills/sema-mvnt",
-      "github_url": "https://github.com/rogerbasler/aktuelle-ki-news-website/tree/main/manus-skills/skills/sema-mvnt",
-      "skill_file_url": "https://github.com/rogerbasler/aktuelle-ki-news-website/blob/main/manus-skills/skills/sema-mvnt/SKILL.md",
-      "file_count": 5,
-      "byte_size": 106848,
-      "tree_sha256": "d08f6cc385f7635b7b4431175ec5329ee773975b39d3301e89b28bb9679faa8c"
-    },
-    {
       "slug": "similarweb-analytics",
       "display_name": "similarweb-analytics",
       "description": "Analyze websites and domains using SimilarWeb traffic data. Get traffic metrics, engagement stats, global rankings, traffic sources, and geographic distribution for comprehensive website research.",

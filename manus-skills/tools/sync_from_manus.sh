@@ -8,6 +8,8 @@ EXPORT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 TARGET_DIR="${EXPORT_ROOT}/skills"
 CATALOG_DIR="${EXPORT_ROOT}/catalog"
 GITHUB_URL="${2:-https://github.com/rogerbasler/aktuelle-ki-news-website}"
+# Kunden- und vertrauliche Skills nie in dieses öffentliche Repo exportieren.
+EXCLUDED_SKILLS=(sema-mvnt)
 
 if [[ ! -d "${SOURCE_DIR}" ]]; then
   printf 'Quellverzeichnis nicht gefunden: %s\n' "${SOURCE_DIR}" >&2
@@ -29,6 +31,9 @@ mkdir -p "${CATALOG_DIR}"
 rm -rf "${STAGING_DIR}"
 mkdir -p "${STAGING_DIR}"
 cp -a "${SOURCE_DIR}/." "${STAGING_DIR}/"
+for skill in "${EXCLUDED_SKILLS[@]}"; do
+  rm -rf "${STAGING_DIR:?}/${skill}"
+done
 
 rm -rf "${TARGET_DIR}"
 mv "${STAGING_DIR}" "${TARGET_DIR}"
