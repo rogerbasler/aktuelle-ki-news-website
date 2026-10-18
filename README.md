@@ -41,4 +41,4 @@ Interne Instagram-Insights werden nur verwendet, wenn im verbundenen Instagram-C
 
 ## Veröffentlichung
 
-Das Repository wird über GitHub Pages mit der Custom Domain [news.fragroger.ai](http://news.fragroger.ai/) veröffentlicht.
+Das Repository wird über GitHub Pages mit der Custom Domain [rogerbasler.github.io/aktuelle-ki-news-website](http://rogerbasler.github.io/aktuelle-ki-news-website/) veröffentlicht.
